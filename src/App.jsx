@@ -14,10 +14,11 @@ gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 const App = () => {
   useGSAP(() => {
-    ScrollSmoother.create({
+    const smoother = ScrollSmoother.create({
       smooth: 3,
       effects: true,
     });
+    smoother.scrollTo(0);
   });
 
   return (

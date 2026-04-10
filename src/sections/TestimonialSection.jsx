@@ -2,13 +2,17 @@ import { useRef } from 'react';
 import { cards } from '../constants';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
+import { useMediaQuery } from 'react-responsive';
 
 const TestimonialSection = () => {
+  const isMobile = useMediaQuery({
+    query: '(max-width: 768px)',
+  });
   const vdRef = useRef([]);
 
   useGSAP(() => {
     gsap.set('.testimonials-section', {
-      marginTop: '-140vh',
+      marginTop: isMobile ? '0vh' : '-140vh',
     });
 
     const tl = gsap.timeline({
@@ -42,9 +46,9 @@ const TestimonialSection = () => {
       scrollTrigger: {
         trigger: '.testimonials-section',
         start: '10% top',
-        end: '200% top',
+        end: isMobile ? '50% top' : '200% top',
         scrub: 1.5,
-        pin: true,
+        pin: !isMobile,
       },
     });
 
@@ -87,6 +91,7 @@ const TestimonialSection = () => {
               playsInline
               muted
               loop
+              preload="metadata"
               className="size-full object-cover"
             />
           </div>

@@ -10,6 +10,7 @@ const FooterSection = () => {
       <img
         src="/images/footer-dip.png"
         alt=""
+        loading="lazy"
         className="w-full object-cover -translate-y-1"
       />
 
@@ -23,6 +24,7 @@ const FooterSection = () => {
         {isMobile ? (
           <img
             src="/images/footer-drink.png"
+            loading="lazy"
             className="absolute top-0 object-contain"
           />
         ) : (
